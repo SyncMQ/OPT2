@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5773555080",
+    "project_id": "lyrichord",
+    "storage_bucket": "lyrichord.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5773555080:android:1d13f80bf2698bfdb6763d",
+        "android_client_info": {
+          "package_name": "com.example.lyrichord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5773555080-c65gdlq0nrj8usje8rn6jnup0maa0jmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwKrWZuE1TWsidr2wsZgwWBKUbijMI8WU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5773555080-c65gdlq0nrj8usje8rn6jnup0maa0jmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
