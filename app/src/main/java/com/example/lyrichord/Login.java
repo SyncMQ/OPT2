@@ -18,12 +18,15 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login extends AppCompatActivity {
     private Button register, login;
     private EditText username, password;
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth fAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        fAuth = FirebaseAuth.getInstance();
 
 
         username = findViewById(R.id.loginUsername);
@@ -34,11 +37,13 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if (username.getText().toString().isEmpty()){
                     username.setError("Username is empty");
+                    return;
                 } else if (password.getText().toString().isEmpty()){
                     password.setError("Password is empty");
+                    return;
                 }
 
-                firebaseAuth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                fAuth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));

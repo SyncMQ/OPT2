@@ -1,28 +1,26 @@
 package com.example.lyrichord;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
     private EditText username, email, password, passConfirm;
     private Button register;
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth fAuth;
 
-    @Override
-    public void onStart(){
-        super.onStart();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser != null){
-
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +60,18 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-//                firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener()
+                fAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
         });
