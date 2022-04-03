@@ -1,21 +1,55 @@
 package com.example.lyrichord;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class User {
-    private Integer uid;
+    private String uid;
     private String username;
     private String email;
+    private static final String TAG = "UserActivity";
 
-    public User(){
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
 
-    }
 
-    public User(Integer uid, String username, String email) {
+
+    public User(String uid, String username, String email) {
         this.uid = uid;
         this.username = username;
         this.email = email;
     }
 
-    public Integer getUid() {
+    public void createUser(){
+        Map<String, Object> user = new HashMap<>();
+        user.put("uid", uid);
+        user.put("username", username);
+        user.put("email", email);
+
+        database.collection("users")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "Added user to the database with ID: " + uid);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG,"Can't add user to the database!", e);
+            }
+        });
+    }
+
+    public String getUid() {
         return uid;
     }
 

@@ -68,6 +68,8 @@ public class Register extends AppCompatActivity {
                 fAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
+                        User user = new User(fAuth.getCurrentUser().getUid(),username.getText().toString(),email.getText().toString());
+                        user.createUser();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
                     }
