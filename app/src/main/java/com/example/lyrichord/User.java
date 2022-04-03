@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    protected String uid;
-    protected String username;
-    protected String email;
+    private String uid;
+    private String username;
+    private String email;
     private static final String TAG = "UserActivity";
 
     protected FirebaseFirestore database = FirebaseFirestore.getInstance();

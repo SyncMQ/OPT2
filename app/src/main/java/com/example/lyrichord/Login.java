@@ -20,6 +20,14 @@ public class Login extends AppCompatActivity {
     private EditText username, password;
     private FirebaseAuth fAuth;
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null ){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,13 +77,5 @@ public class Login extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
-        if(FirebaseAuth.getInstance().getCurrentUser() != null ){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
-    }
 
 }
