@@ -6,12 +6,24 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/uCreateItem"
+        android:id="@+id/createNext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="620dp"
-        android:text="Create"
+        android:layout_marginTop="592dp"
+        android:text="Next"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/createNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="592dp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +31,7 @@
         android:id="@+id/createTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Title"
         android:inputType="textPersonName"
@@ -42,21 +54,6 @@
         android:textColorHint="#979797"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.149"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/createLyrics"
-        android:layout_width="337dp"
-        android:layout_height="218dp"
-        android:layout_marginTop="392dp"
-        android:ems="10"
-        android:hint="Lyrics"
-        android:inputType="textPersonName|textImeMultiLine"
-        android:minHeight="48dp"
-        android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,6 +101,7 @@
             android:minHeight="48dp"
             android:text="Electric"
             tools:ignore="TouchTargetSizeCheck" />
+
     </RadioGroup>
 
     <RadioGroup
@@ -132,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Piano"
-            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,28 +1,24 @@
 package com.example.lyrichord;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private final FirebaseFirestore database = FirebaseFirestore.getInstance();
     private Button logout, createItem, uCreateItem, readItems, updateItem, uUpdateItem, deleteItem;
+    private Button createNext;
     private ListView mainList;
     private ArrayList<List> lists = new ArrayList<>();
     private User user = new User();
@@ -40,10 +36,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setContentView(R.layout.create_item);
+                createNext = findViewById(R.id.createNext);
+                createNext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        setContentView(R.layout.create_item2);
+                    }
+                });
             }
         });
 
-        uCreateItem = findViewById(R.id.uCreateItem);
+
+
+//        uCreateItem = findViewById(R.id.createNext);
+
 
 
         logout = findViewById(R.id.logout);
