@@ -13,14 +13,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private String uid;
-    private String username;
-    private String email;
+    protected String uid;
+    protected String username;
+    protected String email;
     private static final String TAG = "UserActivity";
 
-    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    protected FirebaseFirestore database = FirebaseFirestore.getInstance();
 
 
+    public User(){
+
+    }
 
     public User(String uid, String username, String email) {
         this.uid = uid;
@@ -34,14 +37,13 @@ public class User {
         user.put("username", username);
         user.put("email", email);
 
-        database.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "Added user to the database with ID: " + uid);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
+        database.collection("users").document(uid)
+                .set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d(TAG, "Added user to the database with ID: " + uid);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.w(TAG,"Can't add user to the database!", e);
