@@ -27,11 +27,16 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
+
         username = findViewById(R.id.registerUsername);
         email = findViewById(R.id.registerEmail);
         password = findViewById(R.id.registerPass);
         passConfirm = findViewById(R.id.repeatPass);
-        register = findViewById(R.id.registerButton);
+        register = findViewById(R.id.register);
+
+        fAuth = FirebaseAuth.getInstance();
+
 
         //Form validation
         register.setOnClickListener(new View.OnClickListener() {
