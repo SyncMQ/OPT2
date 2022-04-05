@@ -1,26 +1,27 @@
 package com.example.lyrichord;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private final FirebaseFirestore database = FirebaseFirestore.getInstance();
+    private final FirebaseFirestore fDatabase = FirebaseFirestore.getInstance();
+    private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     private Button logout, createItem, uCreateItem, readItems, updateItem, uUpdateItem, deleteItem;
     private Button createNext;
-    private ListView mainList;
-    private ArrayList<List> lists = new ArrayList<>();
+    private RecyclerView mainList;
+    private ArrayList<Item> items = new ArrayList<>();
     private User user = new User();
 
 
@@ -61,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void readList(){
+
     }
 
 

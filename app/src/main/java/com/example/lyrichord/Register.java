@@ -17,11 +17,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
     private EditText username, email, password, passConfirm;
     private Button register;
     private FirebaseAuth fAuth;
+    private DatabaseReference reference;
 
 
     @Override
@@ -37,7 +40,6 @@ public class Register extends AppCompatActivity {
         register = findViewById(R.id.register);
 
         fAuth = FirebaseAuth.getInstance();
-
 
         //Form validation
         register.setOnClickListener(new View.OnClickListener() {
@@ -69,12 +71,11 @@ public class Register extends AppCompatActivity {
                 fAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        User user = new User(
+                        createUser(
                                 fAuth.getCurrentUser().getUid(),
                                 username.getText().toString(),
                                 email.getText().toString()
                         );
-                        user.createUser();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
                     }
@@ -88,6 +89,12 @@ public class Register extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void createUser(String uid, String username, String email){
+        User user = new User(uid,username,email);
+        reference = FirebaseDatabase.getInstance("https://lyrichord-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+        reference.child("users").child(user.getUid()).setValue(user);
     }
 
 }

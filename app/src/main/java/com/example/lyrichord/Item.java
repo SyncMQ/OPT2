@@ -16,14 +16,14 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class List {
+public class Item {
     private String title;
     private String author;
     private String text;
     private String instrument;
     private String type;
 
-    public List(){
+    public Item(){
 
     }
 

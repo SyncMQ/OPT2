@@ -39,10 +39,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/mainList"
-        android:layout_width="341dp"
-        android:layout_height="471dp"
-        android:layout_marginTop="72dp"
+        android:id="@+id/itemList"
+        android:layout_width="289dp"
+        android:layout_height="555dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
