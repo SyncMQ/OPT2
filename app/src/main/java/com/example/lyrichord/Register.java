@@ -50,17 +50,14 @@ public class Register extends AppCompatActivity {
                     username.setError("Username is required");
                     return;
                 }
-
                 if (email.getText().toString().isEmpty()){
                     email.setError("Email is required");
                     return;
                 }
-
                 if (password.getText().toString().isEmpty()){
                     password.setError("Password is required");
                     return;
                 }
-
                 if (passConfirm.getText().toString().isEmpty()){
                     passConfirm.setError("Please confirm your password");
                     return;
@@ -69,7 +66,10 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                fAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                fAuth.createUserWithEmailAndPassword(
+                        email.getText().toString(),
+                        password.getText().toString()).addOnSuccessListener(
+                                new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         createUser(

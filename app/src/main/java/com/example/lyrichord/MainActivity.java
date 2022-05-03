@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,11 +28,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference reference;
-    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//    private static currentUser =  ;
+    private FirebaseUser dbUser = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseDatabase root = FirebaseDatabase.getInstance("https://lyrichord-default-rtdb.europe-west1.firebasedatabase.app/");
-    private Button logout, createItem, uCreateItem, readItems, updateItem, uUpdateItem, deleteItem;
-    private EditText cTitle, cAuthor, cInstrument;
-    private RadioButton cNone1, cGuitar, cPiano, cNone2, cAcoustic, cElectric, cText;
+    private Button logout, createItem;
     private Button createNext;
     private ListView mainList;
     private ArrayList<String> items = new ArrayList<>();
@@ -46,49 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 items
         );
 
-        createItem = findViewById(R.id.createItem);
-        uCreateItem = findViewById(R.id.uCreateItem);
-
-
-        mainList = findViewById(R.id.itemList);
-//        mainList.setAdapter(adapter);
-
-        // below line is used for getting reference
-        // of our Firebase Database.
-        reference = FirebaseDatabase
-                .getInstance("https://lyrichord-default-rtdb.europe-west1.firebasedatabase.app/")
-                .getReference("users");
-
-//        reference.addChildEventListener(new ChildEventListener() {
-//                                            @Override
-//                                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                                                String value = snapshot.getValue(String.class);
-//                                                items.add(value);
-//                                                adapter.notifyDataSetChanged();
-//                                            }
-//
-//                                            @Override
-//                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                                                adapter.notifyDataSetChanged();
-//                                            }
-//
-//                                            @Override
-//                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//                                                adapter.notifyDataSetChanged();
-//                                            }
-//
-//                                            @Override
-//                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//                                            }
-//
-//                                            @Override
-//                                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                            }
-//                                        });
-//                mainList.setAdapter(adapter);
-
 
         createItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
+//                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(MainActivity.this, dbUser.getEmail(), Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),Login.class));
                 finish();
             }
@@ -119,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
         createNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.create_item2);
-                uCreateItem = findViewById(R.id.uCreateItem);
+
             }
         });
     }
