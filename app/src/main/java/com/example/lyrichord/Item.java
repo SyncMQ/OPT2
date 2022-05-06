@@ -16,54 +16,23 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Item {
-    private String title;
-    private String author;
-    private String text;
-    private String instrument;
-    private String type;
+interface Item {
+    public void setTitle(String title) ;
 
-    public Item(){
+    public void setAuthor(String author);
 
-    }
+    public void setText(String text);
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setType(String type);
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+    public String getTitle();
 
-    public void setText(String text) {
-        this.text = text;
-    }
+    public String getAuthor();
 
-    public void setInstrument(String instrument) {
-        this.instrument = instrument;
-    }
+    public String getText();
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public String getInstrument();
 
-    public String getTitle() {
-        return title;
-    }
+    public String getType();
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getInstrument() {
-        return instrument;
-    }
-
-    public String getType() {
-        return type;
-    }
 }

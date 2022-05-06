@@ -25,8 +25,8 @@ public class Register extends AppCompatActivity {
     private Button register;
     private FirebaseAuth fAuth;
     private DatabaseReference reference;
+    private FirebaseDatabase root = FirebaseDatabase.getInstance("https://lyrichord-default-rtdb.europe-west1.firebasedatabase.app/");
     private User user;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +94,7 @@ public class Register extends AppCompatActivity {
 
     public void createUser(String uid, String username, String email){
         user = new User(uid,username,email);
-        reference = FirebaseDatabase.getInstance("https://lyrichord-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+        reference = root.getReference();
         reference.child("users").child(user.getUid()).setValue(user);
     }
 

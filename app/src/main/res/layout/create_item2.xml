@@ -6,22 +6,24 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/createLyrics"
-        android:layout_width="362dp"
-        android:layout_height="544dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/cText"
+        android:layout_width="367dp"
+        android:layout_height="554dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Lyrics"
-        android:inputType="textPersonName|textImeMultiLine"
+        android:inputType="textMultiLine"
+        android:lines="30"
         android:minHeight="48dp"
+        android:scrollbars="vertical"
         android:textColorHint="#979797"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/uCreateItem"
+        android:id="@+id/create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="612dp"

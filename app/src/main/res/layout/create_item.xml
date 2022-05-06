@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/createNext"
+        android:id="@+id/cNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="544dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/createTitle"
+        android:id="@+id/cTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/createAuthor"
+        android:id="@+id/cAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
@@ -46,22 +46,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/createInstrument"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:ems="10"
-        android:hint="Instrument"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#979797"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <RadioGroup
+        android:id="@+id/cType"
         android:layout_width="132dp"
         android:layout_height="142dp"
         android:layout_marginTop="244dp"
@@ -71,20 +57,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/instrumentNone"
+            android:id="@+id/cNone2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="None"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <RadioButton
-            android:id="@+id/instrumentGuitar"
+            android:id="@+id/cAcoustic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Acoustic" />
 
         <RadioButton
-            android:id="@+id/instrumentPiano"
+            android:id="@+id/cElectric"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -94,6 +80,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/cInstrument"
         android:layout_width="139dp"
         android:layout_height="142dp"
         android:layout_marginTop="244dp"
@@ -103,19 +90,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/typeNone"
+            android:id="@+id/cNone1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="None" />
 
         <RadioButton
-            android:id="@+id/typeAcoustic"
+            android:id="@+id/cGuitar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guitar" />
 
         <RadioButton
-            android:id="@+id/typeElectric"
+            android:id="@+id/cPiano"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Piano"
