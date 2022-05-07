@@ -42,7 +42,6 @@ public class Register extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        //Form validation
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

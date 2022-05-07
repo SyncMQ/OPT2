@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button logout, createItem;
     private ListView listView;
     private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<Data> data = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
     @Override
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String value = snapshot.getValue(Data.class).toString();
                 list.add(value);
+                data.add(snapshot.getValue(Data.class));
                 adapter.notifyDataSetChanged();
             }
 
@@ -67,6 +71,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(MainActivity.this, "Song Data is " + data.get(i).getText(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), ReadItem.class);
+                intent.putExtra("title",data.get(i).getTitle());
+                intent.putExtra("text", data.get(i).getText());
+                startActivity(intent);
+            }
+        });
+
 
         createItem = findViewById(R.id.createItem);
         createItem.setOnClickListener(new View.OnClickListener() {

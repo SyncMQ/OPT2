@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lyrichord">
         <activity
+            android:name=".ReadItem"
+            android:exported="false" />
+        <activity
             android:name=".CreateItem"
             android:exported="false" />
         <activity
