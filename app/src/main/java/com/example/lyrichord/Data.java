@@ -65,12 +65,12 @@ public class Data {
     }
 
     public String toString(){
-        if (!instrument.equals("None") && type.equals("None")) {
+        if (!instrument.equals("N/A") && type.equals("None")) {
             return title + " by " + author + "[" + instrument + "]";
-        } else if (!instrument.equals("None") && author == null){
+        } else if (!instrument.equals("N/A") && author == null){
             return title + "[" + instrument + "]" + "[" + type + "]";
-        } else if (instrument.equals("None")) {
-            return title + author;
+        } else if (instrument.equals("N/A")) {
+            return title + " by " +  author;
         }
         return title + " by " + author + "[" + instrument + "]" + "[" + type + "]";
     }
