@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/rText"
-        android:layout_width="403dp"
-        android:layout_height="593dp"
+        android:layout_width="281dp"
+        android:layout_height="561dp"
         android:layout_marginTop="32dp"
         android:fontFamily="monospace"
         android:lines="8"
