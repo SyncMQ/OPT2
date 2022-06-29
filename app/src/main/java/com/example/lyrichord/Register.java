@@ -45,25 +45,7 @@ public class Register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (username.getText().toString().isEmpty()){
-                    username.setError("Username is required");
-                    return;
-                }
-                if (email.getText().toString().isEmpty()){
-                    email.setError("Email is required");
-                    return;
-                }
-                if (password.getText().toString().isEmpty()){
-                    password.setError("Password is required");
-                    return;
-                }
-                if (passConfirm.getText().toString().isEmpty()){
-                    passConfirm.setError("Please confirm your password");
-                    return;
-                } else if (!password.getText().toString().equals(passConfirm.getText().toString())){
-                    passConfirm.setError("Both passwords are different");
-                    return;
-                }
+
 
                 fAuth.createUserWithEmailAndPassword(
                         email.getText().toString(),
@@ -88,6 +70,10 @@ public class Register extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void registerValidation(){
 
     }
 
