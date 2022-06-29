@@ -1,6 +1,6 @@
 package com.example.lyrichord;
 
-public class Default implements Item {
+public class Default extends Item {
     private String title;
     private String author;
     private String text;

@@ -1,6 +1,6 @@
 package com.example.lyrichord;
 
-public class Piano implements Item {
+public class Piano extends Item {
     private String title;
     private String author;
     private String text;
