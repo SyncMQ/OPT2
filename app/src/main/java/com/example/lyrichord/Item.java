@@ -16,23 +16,23 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-interface Item {
-    public void setTitle(String title) ;
+abstract class Item {
+    abstract public void setTitle(String title) ;
 
-    public void setAuthor(String author);
+    abstract public void setAuthor(String author);
 
-    public void setText(String text);
+    abstract public void setText(String text);
 
-    public void setType(String type);
+    abstract public void setType(String type);
 
-    public String getTitle();
+    abstract public String getTitle();
 
-    public String getAuthor();
+    abstract public String getAuthor();
 
-    public String getText();
+    abstract public String getText();
 
-    public String getInstrument();
+    abstract public String getInstrument();
 
-    public String getType();
+    abstract public String getType();
 
 }
