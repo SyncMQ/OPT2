@@ -9,11 +9,15 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.lyrichord.FactoryMethod.Default;
+import com.example.lyrichord.FactoryMethod.Guitar;
+import com.example.lyrichord.FactoryMethod.Item;
+import com.example.lyrichord.FactoryMethod.Piano;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CreateItem extends AppCompatActivity {
+public class CreateItemView extends AppCompatActivity {
     private EditText title, author, text;
     private Button next, create;
     private RadioGroup instrumentGroup, typeGroup;
@@ -97,11 +101,9 @@ public class CreateItem extends AppCompatActivity {
                             default:
                                 createItem();
                         }
-
                         finish();
                     }
                 });
-
             }
         });
     }

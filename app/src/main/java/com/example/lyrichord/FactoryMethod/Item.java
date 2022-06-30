@@ -1,4 +1,4 @@
-package com.example.lyrichord;
+package com.example.lyrichord.FactoryMethod;
 
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,9 +16,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-abstract class Item {
-
-
+public interface Item {
     abstract public void setTitle(String title) ;
 
     abstract public void setAuthor(String author);

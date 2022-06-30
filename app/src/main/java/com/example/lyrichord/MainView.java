@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -22,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainView extends AppCompatActivity {
     private DatabaseReference reference;
     private FirebaseAuth fAuth;
     private FirebaseDatabase root = FirebaseDatabase.getInstance("https://lyrichord-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                Toast.makeText(MainActivity.this, "Song Data is " + data.get(i).getText(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), ReadItem.class);
+                Intent intent = new Intent(getApplicationContext(), ReadItemView.class);
                 intent.putExtra("title",data.get(i).getTitle());
                 intent.putExtra("text", data.get(i).getText());
                 startActivity(intent);
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         createItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), CreateItem.class));
+                startActivity(new Intent(getApplicationContext(), CreateItemView.class));
             }
         });
 
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), LoginView.class));
                 finish();
             }
         });

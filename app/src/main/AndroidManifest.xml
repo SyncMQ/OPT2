@@ -13,16 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lyrichord">
         <activity
-            android:name=".ReadItem"
+            android:name=".ReadItemView"
             android:exported="false" />
         <activity
-            android:name=".CreateItem"
+            android:name=".CreateItemView"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".RegisterView"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".LoginView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".MainView"
             android:exported="false" />
     </application>
 

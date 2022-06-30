@@ -1,32 +1,26 @@
-package com.example.lyrichord;
+package com.example.lyrichord.FactoryMethod;
 
-public class Piano extends Item {
+import com.example.lyrichord.FactoryMethod.Item;
+
+public class Default implements Item {
     private String title;
     private String author;
     private String text;
-    private static final String INSTRUMENT = "Piano";
     private String type;
 
+    public Default(){
 
-    public Piano(){
     }
 
-    public Piano(String title, String text) {
+    public Default(String title, String text) {
         this.title = title;
         this.text = text;
     }
 
-    public Piano(String title, String author, String text) {
-        this.title = title;
-        this.author = author;
-        this.text = text;
-    }
-
-    public Piano(String title, String author, String text, String type) {
+    public Default(String title, String author, String text) {
         this.title = title;
         this.author = author;
         this.text = text;
-        this.type = type;
     }
 
     @Override
@@ -45,7 +39,7 @@ public class Piano extends Item {
     }
 
     public String getInstrument() {
-        return INSTRUMENT;
+        return "N/A";
     }
 
     @Override
@@ -72,5 +66,4 @@ public class Piano extends Item {
     public void setType(String type) {
         this.type = type;
     }
-
 }

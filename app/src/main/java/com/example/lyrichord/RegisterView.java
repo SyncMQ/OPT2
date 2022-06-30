@@ -3,8 +3,6 @@ package com.example.lyrichord;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,11 +14,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register extends AppCompatActivity {
+public class RegisterView extends AppCompatActivity {
     private EditText username, email, password, passConfirm;
     private Button register;
     private FirebaseAuth fAuth;
@@ -45,8 +42,6 @@ public class Register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 fAuth.createUserWithEmailAndPassword(
                         email.getText().toString(),
                         password.getText().toString()).addOnSuccessListener(
@@ -58,13 +53,13 @@ public class Register extends AppCompatActivity {
                                 username.getText().toString(),
                                 email.getText().toString()
                         );
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainView.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -73,9 +68,6 @@ public class Register extends AppCompatActivity {
 
     }
 
-    public void registerValidation(){
-
-    }
 
     public void createUser(String uid, String username, String email){
         user = new User(uid,username,email);

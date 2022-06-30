@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ReadItem extends AppCompatActivity {
+public class ReadItemView extends AppCompatActivity {
     private TextView title, text;
 
     @Override
