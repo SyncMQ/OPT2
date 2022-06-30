@@ -1,4 +1,4 @@
-package com.example.lyrichord;
+package com.example.lyrichord.Models;
 
 import android.util.Log;
 

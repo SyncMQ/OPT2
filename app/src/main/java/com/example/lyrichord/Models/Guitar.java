@@ -1,6 +1,4 @@
-package com.example.lyrichord.FactoryMethod;
-
-import com.example.lyrichord.FactoryMethod.Item;
+package com.example.lyrichord.Models;
 
 public class Guitar implements Item {
     private String title;

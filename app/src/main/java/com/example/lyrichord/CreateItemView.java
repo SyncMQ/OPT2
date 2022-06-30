@@ -9,10 +9,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.lyrichord.FactoryMethod.Default;
-import com.example.lyrichord.FactoryMethod.Guitar;
-import com.example.lyrichord.FactoryMethod.Item;
-import com.example.lyrichord.FactoryMethod.Piano;
+import com.example.lyrichord.Models.Default;
+import com.example.lyrichord.Models.Guitar;
+import com.example.lyrichord.Models.Item;
+import com.example.lyrichord.Models.Piano;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

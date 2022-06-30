@@ -1,77 +1,76 @@
-package com.example.lyrichord;
+package com.example.lyrichord.Models;
 
-public class Data {
+public class Piano implements Item {
     private String title;
     private String author;
     private String text;
-    private String instrument;
+    private static final String INSTRUMENT = "Piano";
     private String type;
 
-    public Data(){
+
+    public Piano(){
     }
 
-    public Data(String title, String text) {
+    public Piano(String title, String text) {
         this.title = title;
         this.text = text;
     }
 
-    public Data(String title, String author, String text) {
+    public Piano(String title, String author, String text) {
         this.title = title;
         this.author = author;
         this.text = text;
     }
 
-    public Data(String title, String author, String text, String type) {
+    public Piano(String title, String author, String text, String type) {
         this.title = title;
         this.author = author;
         this.text = text;
         this.type = type;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getAuthor() {
         return author;
     }
 
+    @Override
     public String getText() {
         return text;
     }
 
     public String getInstrument() {
-        return instrument;
+        return INSTRUMENT;
     }
 
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public void setTitle(String title) {
         this.title = title;
     }
 
+    @Override
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    @Override
     public void setText(String text) {
         this.text = text;
     }
 
+    @Override
     public void setType(String type) {
         this.type = type;
     }
 
-    public String toString(){
-        if (!instrument.equals("N/A") && type.equals("None")) {
-            return title + " by " + author + "[" + instrument + "]";
-        } else if (!instrument.equals("N/A") && author == null){
-            return title + "[" + instrument + "]" + "[" + type + "]";
-        } else if (instrument.equals("N/A")) {
-            return title + " by " +  author;
-        }
-        return title + " by " + author + "[" + instrument + "]" + "[" + type + "]";
-    }
 }
