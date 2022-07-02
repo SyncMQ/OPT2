@@ -1,6 +1,6 @@
 package com.example.lyrichord.Models;
 
-public class Data {
+public class Data implements ItemGetter, ItemSetter{
     private String title;
     private String author;
     private String text;
@@ -75,3 +75,4 @@ public class Data {
         return title + " by " + author + "[" + instrument + "]" + "[" + type + "]";
     }
 }
+

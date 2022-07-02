@@ -1,3 +1,4 @@
+
 package com.example.lyrichord;
 
 import androidx.annotation.NonNull;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginView extends LoginHandler {
     private Button register, login;
     private EditText username, password;
-    private FirebaseAuth fAuth;
+    private FirebaseAuth fAuth =  FirebaseAuth.getInstance();
 
 
     @Override
@@ -33,7 +34,6 @@ public class LoginView extends LoginHandler {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        fAuth = FirebaseAuth.getInstance();
 
         username = findViewById(R.id.loginUsername);
         password = findViewById(R.id.loginPassword);
@@ -75,21 +75,20 @@ public class LoginView extends LoginHandler {
             @Override
             public void onSuccess(AuthResult authResult) {
                 fbValidation = true;
-                return;
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 fbValidation = false;
                 Toast.makeText(LoginView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                return;
             }
         });
     }
 
     public void toDashboard(){
-        fbValidation = false;
-        startActivity(new Intent(getApplicationContext(), MainView.class));
-        finish();
+        if(fbValidation) {
+            startActivity(new Intent(getApplicationContext(), MainView.class));
+            finish();
+        }
     }
 }

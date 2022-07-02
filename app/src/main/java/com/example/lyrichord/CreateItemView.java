@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 
 import com.example.lyrichord.Models.Default;
 import com.example.lyrichord.Models.Guitar;
-import com.example.lyrichord.Models.Item;
+import com.example.lyrichord.Models.ItemGetter;
 import com.example.lyrichord.Models.Piano;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -111,22 +111,22 @@ public class CreateItemView extends AppCompatActivity {
     public void createItem(){
         fAuth = FirebaseAuth.getInstance();
         reference = root.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("lyrics").push();
-        Item item = new Default(cTitle, cAuthor, cText);
-        reference.setValue(item);
+        ItemGetter itemGetter = new Default(cTitle, cAuthor, cText);
+        reference.setValue(itemGetter);
     }
 
     public void createGuitar(){
         fAuth = FirebaseAuth.getInstance();
         reference = root.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("lyrics").push();
-        Item item = new Guitar(cTitle, cAuthor,cText, cType);
-        reference.setValue(item);
+        ItemGetter itemGetter = new Guitar(cTitle, cAuthor,cText, cType);
+        reference.setValue(itemGetter);
     }
 
     public void createPiano(){
         fAuth = FirebaseAuth.getInstance();
         reference = root.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("lyrics").push();
-        Item item = new Piano(cTitle, cAuthor,cText, cType);
-        reference.setValue(item);
+        ItemGetter itemGetter = new Piano(cTitle, cAuthor,cText, cType);
+        reference.setValue(itemGetter);
     }
 
     public void enableTypeGroup(){

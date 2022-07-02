@@ -1,6 +1,6 @@
 package com.example.lyrichord.Models;
 
-public class Default implements Item {
+public class Default implements ItemGetter {
     private String title;
     private String author;
     private String text;
@@ -43,25 +43,5 @@ public class Default implements Item {
     @Override
     public String getType() {
         return type;
-    }
-
-    @Override
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public void setType(String type) {
-        this.type = type;
     }
 }

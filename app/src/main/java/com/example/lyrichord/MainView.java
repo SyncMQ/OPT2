@@ -43,34 +43,34 @@ public class MainView extends AppCompatActivity {
         listView.setAdapter(adapter);
         reference.child("users").child(fAuth.getCurrentUser().getUid())
                 .child("lyrics").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String value = snapshot.getValue(Data.class).toString();
-                list.add(value);
-                data.add(snapshot.getValue(Data.class));
-                adapter.notifyDataSetChanged();
-            }
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        String value = snapshot.getValue(Data.class).toString();
+                        list.add(value);
+                        data.add(snapshot.getValue(Data.class));
+                        adapter.notifyDataSetChanged();
+                    }
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-            }
+                    }
 
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
-            }
+                    }
 
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-            }
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                    }
+                });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

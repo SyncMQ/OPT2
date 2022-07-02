@@ -46,18 +46,18 @@ public class RegisterView extends AppCompatActivity {
                 fAuth.createUserWithEmailAndPassword(
                         email.getText().toString(),
                         password.getText().toString()).addOnSuccessListener(
-                                new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        createUser(
-                                fAuth.getCurrentUser().getUid(),
-                                username.getText().toString(),
-                                email.getText().toString()
-                        );
-                        startActivity(new Intent(getApplicationContext(), MainView.class));
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
+                        new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                createUser(
+                                        fAuth.getCurrentUser().getUid(),
+                                        username.getText().toString(),
+                                        email.getText().toString()
+                                );
+                                startActivity(new Intent(getApplicationContext(), MainView.class));
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(RegisterView.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -77,3 +77,4 @@ public class RegisterView extends AppCompatActivity {
     }
 
 }
+

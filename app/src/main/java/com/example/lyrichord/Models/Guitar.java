@@ -1,6 +1,6 @@
 package com.example.lyrichord.Models;
 
-public class Guitar implements Item {
+public class Guitar implements ItemGetter {
     private String title;
     private String author;
     private String text;
@@ -51,25 +51,4 @@ public class Guitar implements Item {
     public String getType() {
         return type;
     }
-
-    @Override
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public void setType(String type) {
-        this.type = type;
-    }
-
 }

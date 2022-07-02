@@ -24,7 +24,4 @@ public class ReadItemView extends AppCompatActivity {
         text.setText(rText);
 
     }
-
-
-
 }
