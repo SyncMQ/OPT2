@@ -91,16 +91,7 @@ public class CreateItemView extends AppCompatActivity {
                         } else {
                             cText = text.getText().toString();
                         }
-                        switch(cInstrument){
-                            case "Guitar":
-                                createGuitar();
-                                break;
-                            case "Piano":
-                                createPiano();
-                                break;
-                            default:
-                                createItem();
-                        }
+                        createItem(cInstrument);
                         finish();
                     }
                 });
@@ -108,24 +99,22 @@ public class CreateItemView extends AppCompatActivity {
         });
     }
 
-    public void createItem(){
+    public void createItem(String instrument){
         fAuth = FirebaseAuth.getInstance();
+        ItemGetter itemGetter;
         reference = root.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("lyrics").push();
-        ItemGetter itemGetter = new Default(cTitle, cAuthor, cText);
-        reference.setValue(itemGetter);
-    }
 
-    public void createGuitar(){
-        fAuth = FirebaseAuth.getInstance();
-        reference = root.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("lyrics").push();
-        ItemGetter itemGetter = new Guitar(cTitle, cAuthor,cText, cType);
-        reference.setValue(itemGetter);
-    }
-
-    public void createPiano(){
-        fAuth = FirebaseAuth.getInstance();
-        reference = root.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("lyrics").push();
-        ItemGetter itemGetter = new Piano(cTitle, cAuthor,cText, cType);
+        switch(instrument){
+            case "Guitar":
+                itemGetter = new Guitar(cTitle, cAuthor, cText);
+                break;
+            case "Piano":
+                itemGetter = new Piano(cTitle, cAuthor, cText);
+                break;
+            default:
+                itemGetter = new Default(cTitle, cAuthor, cText);
+                break;
+        }
         reference.setValue(itemGetter);
     }
 
