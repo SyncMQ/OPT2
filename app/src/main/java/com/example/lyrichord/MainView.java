@@ -39,8 +39,19 @@ public class MainView extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         reference = root.getReference();
         listView = findViewById(R.id.itemList);
+        createItem = findViewById(R.id.createItem);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
+        logout = findViewById(R.id.logout);
+
+        fetchList();
+        setCreateListener();
+        setItemListener();
+        setLogoutListener();
+
+    }
+
+    public void fetchList() {
         reference.child("users").child(fAuth.getCurrentUser().getUid())
                 .child("lyrics").addChildEventListener(new ChildEventListener() {
                     @Override
@@ -71,29 +82,32 @@ public class MainView extends AppCompatActivity {
 
                     }
                 });
+    }
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(MainActivity.this, "Song Data is " + data.get(i).getText(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), ReadItemView.class);
-                intent.putExtra("title",data.get(i).getTitle());
-                intent.putExtra("text", data.get(i).getText());
-                startActivity(intent);
-            }
-        });
-
-
-        createItem = findViewById(R.id.createItem);
+    public void setCreateListener() {
         createItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), CreateItemView.class));
             }
         });
+    }
+
+    public void setItemListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), ReadItemView.class);
+                intent.putExtra("title",data.get(i).getTitle());
+                intent.putExtra("text", data.get(i).getText());
+                startActivity(intent);
+            }
+        });
+    }
 
 
-        logout = findViewById(R.id.logout);
+
+    public void setLogoutListener() {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
